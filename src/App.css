@@ -1,0 +1,845 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+.borderNone {
+  border: none !important;
+  outline: none !important;
+  background-color: transparent !important;
+}
+
+.displayNone {
+  display: none !important;
+}
+
+.navbar-nav {
+  align-items: center;
+}
+
+/* Date Input CSS */
+input[type='date']::-webkit-calendar-picker-indicator {
+  background: transparent;
+  bottom: 0;
+  color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+}
+
+/* Status CSS */
+#status option[value] {
+  color: #37b1df;
+  font-size: 16px;
+}
+
+#status option:first-child {
+  color: unset;
+  font-size: 14px;
+}
+
+.pagination-list.active {
+  background: #37b1df;
+  color: #fff;
+}
+
+.rotate180 {
+  transform: rotate(180deg);
+  transition: all 0.8;
+}
+
+.App {
+  text-align: center;
+}
+
+/* Begin: Navbar CSS */
+.navbar {
+  border-radius: 0 0 2px 2px !important;
+}
+
+.dropdown-toggle::after {
+  display: none !important;
+}
+
+.user-icon {
+  margin-left: 8vw;
+}
+
+.user-icon > a {
+  width: 32px;
+  padding: 0 !important;
+  margin-top: 8px;
+}
+
+.user-icon a img {
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+}
+
+.user-name {
+  color: #fff;
+  line-height: 50px;
+  font-size: 12px;
+  margin-left: -16px;
+}
+
+.nav-item {
+  vertical-align: middle;
+}
+
+.navbar-logo {
+  position: absolute;
+  left: 20px;
+}
+
+.navbar-menu {
+  position: absolute;
+  right: 120px;
+}
+
+.navbar-menu ul {
+  gap: 20px;
+}
+
+.dropdown-menu {
+  padding: 0 !important;
+}
+
+.logout-button {
+  border: none;
+  background: unset;
+  display: block;
+  width: 100%;
+  padding: 0 !important;
+}
+
+.user-dropdown-menu a {
+  line-height: 40px;
+}
+
+.dropdown-divider {
+  margin: 0 !important;
+}
+
+.nav-link:hover {
+  opacity: 0.5;
+}
+
+.sr-only {
+  margin-left: 20px;
+}
+/* End: Navbar CSS */
+
+/* Begin: Form CSS */
+.form-gender {
+  padding: 0 !important;
+}
+
+.form-select {
+  height: 40px !important;
+  font-size: 14px !important;
+}
+
+.form-check {
+  padding-left: 20px !important;
+}
+
+.login-button,
+.register-button {
+  margin: 8px 0 0px;
+  padding: 8px 0 !important;
+}
+
+.login-form .form-check {
+  padding: 0 !important;
+}
+
+.login-form .form-check input {
+  margin: 0 8px 0 0;
+  vertical-align: middle;
+}
+
+.login-form .form-check label {
+  vertical-align: middle;
+}
+
+.form-control {
+  height: 40px !important;
+}
+
+.form-control span {
+  margin-left: 8px;
+}
+
+.inputForm {
+  display: flex;
+  gap: 20px;
+  padding: 0 !important;
+}
+
+#input-title {
+  width: 100%;
+  outline: none;
+  border: none !important;
+}
+/* End: Form CSS */
+
+/* Begin: List CSS */
+.list-item {
+  display: flex;
+  position: relative;
+  gap: 2%;
+  margin-top: 20px;
+  border-radius: 8px;
+  min-height: 160px;
+  border: 1px solid #000;
+  max-width: 800px;
+  width: 80vw;
+}
+
+.list-item:nth-child(even) {
+  background-color: gray;
+  color: #fff;
+}
+
+.list-item-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+  margin-left: 2%;
+}
+
+.list-item img {
+  border-radius: 50%;
+  border: 1px solid #000;
+  width: 100%;
+  max-width: 120px;
+}
+
+.list-item-content {
+  padding: 20px 8px;
+  width: 76%;
+}
+
+.input-item-content {
+  width: 100%;
+  padding: 20px !important;
+  font-size: 20px !important;
+}
+
+.list-item:nth-child(even) .input-item-content {
+  background-color: #fff;
+  color: #000;
+}
+
+.list-item-content h4 {
+  padding: 12px 20px;
+  border-radius: 4px;
+  min-height: 48px;
+  vertical-align: middle;
+  word-wrap: break-word;
+  margin: 0 0 40px;
+  font-size: 22px;
+}
+
+.list-item-content h4:hover {
+  background-color: #000;
+  color: #fff;
+  cursor: text;
+}
+
+.item-date {
+  position: absolute;
+  bottom: 0;
+  font-size: 14px;
+  margin-left: 40px;
+}
+/* End: List CSS */
+
+/* Begin: User Information CSS */
+.user-info-page {
+  background-color: #ebebeb;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 60px;
+  max-height: 800px;
+  height: 80vh;
+  border-radius: 4px;
+}
+
+.user-avatar {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  border-radius: 50% !important;
+  overflow: hidden;
+  margin: 0 auto 60px;
+}
+
+.user-avatar img {
+  width: 100%;
+  height: 100%;
+  transition: all 1.2s;
+}
+
+.user-avatar:hover {
+  cursor: pointer;
+}
+
+.user-avatar:hover img {
+  transform: scale(1.1);
+  opacity: 0.5;
+}
+
+.user-avatar:hover .user-avatar-detail {
+  display: block !important;
+}
+
+.user-avatar input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.user-avatar-detail {
+  position: absolute;
+  display: none;
+  top: 32%;
+  left: 11%;
+  font-size: 20px;
+  width: 80%;
+}
+
+.user-info-list {
+  padding-left: 80px;
+}
+
+.user-info-list div {
+  margin: 28px 0;
+}
+
+.user-info-list h3,
+.user-info-list h4 {
+  text-align: left;
+}
+
+.user-info-list h3 {
+  font-size: 24px;
+}
+
+.user-info-list h4 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.user-info-input {
+  width: 200px;
+  padding: 8px;
+}
+
+/* End: User Information CSS */
+
+/* Begin: Submit button CSS */
+.submit-item-btn {
+  display: flex;
+  justify-content: right;
+  gap: 40px;
+  width: 90%;
+  margin-right: 40px;
+}
+
+.submit-item-btn .btn-confirm:hover,
+.submit-item-btn .btn-reset:hover {
+  border: none;
+  color: #fff;
+}
+
+.submit-item-btn .btn-confirm:hover {
+  background-color: #31a74c;
+}
+
+.submit-item-btn .btn-reset:hover {
+  background-color: red;
+}
+
+.btn-confirm,
+.btn-reset {
+  outline: none !important;
+}
+
+.submit-item-btn button {
+  border: 1px solid #000;
+  padding: 12px 32px;
+  border-radius: 0;
+}
+/* End: Button CSS*/
+
+/* .backToTop span {
+  position: absolute;
+  right: 0;
+  margin-bottom: 40px;
+  font-size: 40px;
+}
+
+.backToTop span sgv {
+  width: 40px !important;
+  height: 40px !important;
+} */
+
+/* Begin: Transaction CSS */
+.trans-list-page {
+  background-color: #f5efef;
+  padding: 4px 20px;
+  max-width: 1500px;
+  font-family: 'Poppins', sans-serif;
+  margin: 0 auto;
+}
+
+.trans-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.trans-title h2 {
+  color: #06416e;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.trans-title button {
+  border: none;
+  border-radius: 12px;
+  height: 40px;
+  background: #37b1df;
+}
+
+.status-detail {
+  position: absolute;
+  display: none;
+  top: -8px;
+  left: 40px;
+  width: 300px;
+  color: blue;
+  font-size: 12px;
+}
+
+.date-form {
+  display: flex;
+  gap: 40px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.trans-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.trans-header-content {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.trans-header-content-left .btn {
+  text-align: left !important;
+  background-color: #fff;
+}
+
+.trans-header-content li,
+.trans-header-content .date-input {
+  height: 40px;
+  width: 140px;
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+}
+
+.trans-header-content select,
+.trans-list-page input {
+  width: 100%;
+  height: 100%;
+  padding: 0 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none !important;
+}
+
+.date-input-icon {
+  position: absolute;
+  font-size: 24px;
+  right: 8px;
+  bottom: 20%;
+}
+
+.date-input-icon:hover {
+  cursor: pointer;
+}
+
+.trans-header-btn {
+  list-style: none;
+  display: flex;
+  gap: 0;
+}
+
+.apply-btn,
+.clear-btn {
+  width: 120px;
+  border-radius: 8px !important;
+  padding: 0 !important;
+  width: 76%;
+  height: 100%;
+}
+
+.apply-btn {
+  border: 2px solid #37b1df !important;
+  color: #37b1df !important;
+  margin-right: -20px;
+  background-color: #fff !important;
+}
+
+.apply-btn:hover {
+  background-color: #37b1df !important;
+  color: #fff !important;
+}
+
+.clear-btn {
+  border: 2px solid #f3196f !important;
+  background-color: #fff !important;
+  color: #f3196f !important;
+}
+
+.clear-btn:hover {
+  background-color: #f3196f !important;
+  color: #fff !important;
+}
+
+.view-detail {
+  text-decoration: none !important;
+  width: 100%;
+  border: 1px solid #000;
+  border-radius: 20px;
+  line-height: 36px;
+  color: #37b1df;
+  background-color: #fff;
+}
+
+.view-detail:hover {
+  border: none;
+  background-color: #37b1df;
+  color: #fff;
+}
+
+.delete-btn,
+.view-detail,
+.apply-btn,
+.clear-btn {
+  outline: none !important;
+}
+
+.delete-btn:hover {
+  transform: scale(1.2);
+}
+
+.trans-table-content td > div {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 0 4px;
+  max-width: 300px;
+}
+
+.trans-table-header {
+  font-size: 18px;
+}
+
+.trans-table-header th {
+  width: 14%;
+}
+
+.trans-table-header th:first-child:hover .status-detail {
+  display: block;
+}
+
+.trans-table-header th > div {
+  width: 12%;
+}
+
+.trans-table-content {
+  background-color: #fff;
+  overflow: hidden;
+  height: 60px;
+  margin: 8px 0 20px;
+}
+
+.trans-table-header th,
+.trans-table-content td {
+  padding: 0 20px;
+}
+
+.trans-table-header th:first-child,
+.trans-table-content td:first-child {
+  border-radius: 16px 0 0 16px;
+}
+
+.trans-table-header th:last-child,
+.trans-table-content td:last-child {
+  border-radius: 0 16px 16px 0;
+  width: 60px;
+}
+
+/* End: Transaction CSS */
+
+/* Begin: Modal CSS */
+.confirm-modal,
+.trans-modal,
+.behind-modal,
+.modal-chooseAvatar,
+.modal-chooseAvatar-box {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: unset !important;
+}
+
+.behind-modal {
+  background-color: unset;
+  z-index: 9;
+}
+
+.confirm-modal-content,
+.trans-modal-content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  z-index: 10;
+}
+
+.modal-chooseAvatar-box {
+  display: block;
+  width: 96vw;
+  background: #fff;
+  max-width: 1100px !important;
+  height: 54%;
+  max-height: 500px;
+  margin: auto;
+  padding: 26px 20px 4px;
+}
+
+/* .modal-chooseAvatar-content {
+} */
+
+.confirm-modal-content {
+  min-height: 260px;
+  align-items: center;
+  width: 100vw;
+  max-width: 800px;
+  border-radius: 4px;
+}
+
+.confirm-modal-content p {
+  margin-top: -60px;
+  font-size: 28px;
+}
+
+.close-modal-btn {
+  position: absolute;
+  font-size: 28px;
+  right: 8px;
+  top: 8px;
+}
+
+.close-modal-btn:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.modal-button {
+  display: flex;
+  gap: 40px;
+  position: absolute;
+  bottom: 60px;
+}
+
+.modal-button button {
+  border: none;
+  width: 120px;
+  height: 48px;
+  border-radius: 4px;
+}
+
+.modal-button_confirm {
+  background-color: red;
+  color: #fff;
+}
+
+.modal-button_cancel {
+  background-color: #ccc;
+}
+
+.modal-button_save {
+  background-color: green;
+  color: #fff;
+}
+
+.modal-button_confirm:hover,
+.modal-button_cancel:hover,
+.modal-button_save {
+  opacity: 0.7;
+}
+
+.modal-delete-btn {
+  font-size: 20px;
+  color: red;
+}
+
+.trans-modal-content {
+  min-height: 60vh;
+  width: 100vw;
+  max-width: 480px;
+  border-radius: 4px;
+  padding: 20px 4%;
+}
+
+.trans-modal-content p {
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  top: 20px;
+}
+
+.trans-modal-form {
+  margin: auto;
+  text-align: left;
+}
+
+.trans-modal-form .col-md-12:last-child {
+  margin-bottom: 40px !important;
+}
+
+.trans-modal-form label {
+  font-size: 18px;
+}
+/* End: Modal CSS */
+
+/* Begin: Pagination CSS */
+.pagination {
+  display: flex !important;
+  justify-content: space-around;
+}
+
+.pagination-left {
+  display: flex;
+  font-size: 16px;
+  align-items: center;
+  gap: 20px;
+}
+
+.pagination-left select {
+  position: relative;
+  width: 48px;
+  line-height: 32px;
+  text-align: center;
+  border: none !important;
+  outline: none !important;
+}
+
+.pagination-left h4,
+.pagination-left p {
+  margin: 0 !important;
+}
+
+.pagination-left > p > div svg {
+  position: absolute;
+  right: 0px;
+  top: 22%;
+}
+
+.pagination-right {
+  list-style: none;
+  display: flex;
+}
+
+.pagination-item {
+  width: 40px;
+  line-height: 40px;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+
+.pagination-item:hover {
+  cursor: pointer;
+}
+/* End: Pagination CSS */
+
+/* Responsive */
+@media (min-width: 1200px) {
+  .listItem {
+    width: 60vw;
+  }
+}
+
+@media (max-width: 991px) {
+  .navbar-nav {
+    display: none !important;
+  }
+
+  .navbar-toggler {
+    position: absolute;
+    right: 20px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .trans-header {
+    display: block;
+  }
+
+  .trans-header-btn {
+    margin-top: 40px;
+    /* justify-content:ri */
+  }
+
+  .trans-header-content li,
+  .trans-header-content .date-input {
+    width: 200px;
+  }
+
+  .trans-table-header th,
+  .trans-table-content td {
+    padding: 0 8px;
+  }
+
+  .trans-table-header th {
+    width: 8%;
+  }
+}
