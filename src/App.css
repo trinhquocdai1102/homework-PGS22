@@ -11,6 +11,14 @@ ul {
   margin: 0;
 }
 
+.ReactCrop__crop-selection {
+  border-radius: 50%;
+}
+
+.ReactCrop__drag-handle::after {
+  border-radius: 50%;
+}
+
 .borderNone {
   border: none !important;
   outline: none !important;
@@ -273,9 +281,10 @@ input[type='date']::-webkit-calendar-picker-indicator {
 /* Begin: User Information CSS */
 .user-info-page {
   background-color: #ebebeb;
+  width: 92vw;
   max-width: 500px;
   margin: 0 auto;
-  padding: 60px;
+  padding: 20px 4%;
   max-height: 800px;
   height: 80vh;
   border-radius: 4px;
@@ -287,7 +296,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
   height: 160px;
   border-radius: 50% !important;
   overflow: hidden;
-  margin: 0 auto 60px;
+  margin: 0 auto 32px;
 }
 
 .user-avatar img {
@@ -327,25 +336,29 @@ input[type='date']::-webkit-calendar-picker-indicator {
 }
 
 .user-info-list {
-  padding-left: 80px;
+  max-width: 400px;
 }
 
-.user-info-list div {
-  margin: 28px 0;
-}
-
-.user-info-list h3,
-.user-info-list h4 {
+.user-info-list > div {
+  margin: 40px 0;
   text-align: left;
 }
 
-.user-info-list h3 {
-  font-size: 24px;
+.user-info-list label {
+  font-size: 20px;
 }
 
-.user-info-list h4 {
+.user-info-list input,
+.user-info-list div {
   font-size: 16px;
-  margin: 0;
+}
+
+.MuiFormControl-root {
+  margin: 0 !important;
+}
+
+.MuiMenuItem-root {
+  font-size: 14px !important;
 }
 
 .user-info-input {
@@ -409,6 +422,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
   max-width: 1500px;
   font-family: 'Poppins', sans-serif;
   margin: 0 auto;
+  border-radius: 8px;
 }
 
 .trans-title {
@@ -651,10 +665,16 @@ input[type='date']::-webkit-calendar-picker-indicator {
   max-height: 500px;
   margin: auto;
   padding: 26px 20px 4px;
+  border-radius: 8px;
 }
 
-/* .modal-chooseAvatar-content {
-} */
+.modal-chooseAvatar-content {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  left: 12px;
+  display: flex;
+}
 
 .confirm-modal-content {
   min-height: 260px;

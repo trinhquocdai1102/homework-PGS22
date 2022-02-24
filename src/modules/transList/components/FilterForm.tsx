@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { filterTrans, filterTransData } from '../redux/transReducer';
 import { useDispatch } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
@@ -9,9 +9,9 @@ import { BsCalendarCheck } from 'react-icons/bs';
 
 const FilterForm = () => {
   const dispatch = useDispatch<ThunkDispatch<AppState, null, Action<string>>>();
-  const [isType, setType] = React.useState('text');
-  const [display, setDisplay] = React.useState(true);
-  const [filterValue, setFilterValue] = React.useState<filterTrans[]>([
+  const [isType, setType] = useState('text');
+  const [display, setDisplay] = useState(true);
+  const [filterValue, setFilterValue] = useState<filterTrans[]>([
     { type: 'status', value: '' },
     { type: 'time_created', value: '', payload: '' },
     { type: 'payroll_id', value: '' },
@@ -27,7 +27,7 @@ const FilterForm = () => {
     setDisplay(true);
   };
 
-  const filterByField = React.useCallback((data: filterTrans) => {
+  const filterByField = useCallback((data: filterTrans) => {
     setFilterValue((prev) => {
       const newValue = prev?.map((item) => {
         if (item.type === data.type) {
@@ -42,7 +42,7 @@ const FilterForm = () => {
     });
   }, []);
 
-  const clearFilter = React.useCallback(() => {
+  const clearFilter = useCallback(() => {
     setFilterValue((prev) => {
       return prev.map((item) => {
         return { ...item, value: '' };
@@ -50,7 +50,7 @@ const FilterForm = () => {
     });
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     dispatch(filterTransData(filterValue));
   }, [filterValue, dispatch]);
   return (
@@ -62,6 +62,7 @@ const FilterForm = () => {
             id="status"
             form="statusForm"
             className="btn"
+            value={filterValue[0].value}
             onChange={(e) => filterByField({ type: 'status', value: e.target.value })}
           >
             <option value={''}>Status</option>
@@ -77,6 +78,7 @@ const FilterForm = () => {
             type={isType}
             className="date-input btn"
             onFocus={onFocus}
+            value={filterValue[1].value}
             onBlur={onBlur}
             placeholder="From"
             onChange={(e) => {
@@ -91,6 +93,7 @@ const FilterForm = () => {
             className="date-input btn"
             onFocus={onFocus}
             onBlur={onBlur}
+            value={filterValue[1].value}
             placeholder="To"
             onChange={(e) => {
               filterByField({ ...filterValue[1], payload: e.target.value });
@@ -103,6 +106,7 @@ const FilterForm = () => {
             className="trans-header-item btn"
             type="text"
             placeholder="Order #"
+            value={filterValue[2].value}
             onChange={(e) => filterByField({ type: 'payroll_id', value: e.target.value })}
           />
         </li>

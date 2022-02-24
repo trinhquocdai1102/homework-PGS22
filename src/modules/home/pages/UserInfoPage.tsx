@@ -16,6 +16,11 @@ import Cookies from 'js-cookie';
 import axios from 'axios';
 import ReactCrop from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
 
 const UserInfoPage = () => {
   const dispatch = useDispatch<ThunkDispatch<AppState, null, Action<string>>>();
@@ -77,13 +82,14 @@ const UserInfoPage = () => {
       };
       const json = await axios.put(API_PATHS.userProfile, formData, config);
       if (json.data && json.data.code === RESPONSE_STATUS_SUCCESS) {
-        console.log(json);
         dispatch(setUserInfo(json.data.data));
       }
-
-      console.log(json);
     }
   };
+
+  // const handleChange = (prop) => (event) => {
+  //   setValues({ ...values, [prop]: event.target.value });
+  // };
 
   const onLoad = useCallback((img: any) => {
     imgRef.current = img;
@@ -158,24 +164,67 @@ const UserInfoPage = () => {
             </div>
             <div className="text-center user-info-list">
               <div>
-                <h3>Email</h3>
-                <h4>{user?.email}</h4>
+                <FormControl fullWidth sx={{ m: 1 }}>
+                  <InputLabel htmlFor="outlined-adornment-email">Email</InputLabel>
+                  <OutlinedInput
+                    id="outlined-adornment-email"
+                    value={user?.email}
+                    disabled
+                    // onChange={handleChange('Email')}
+                    label="Email&ensp;"
+                  />
+                </FormControl>
               </div>
               <div>
-                <h3>User Name</h3>
-                <h4>{user?.name}</h4>
+                <FormControl fullWidth sx={{ m: 1 }}>
+                  <InputLabel htmlFor="outlined-adornment-name">User Name</InputLabel>
+                  <OutlinedInput
+                    id="outlined-adornment-name"
+                    value={user?.name}
+                    // onChange={handleChange('Name')}
+                    label="User Name&ensp;&ensp;"
+                  />
+                </FormControl>
               </div>
               <div>
-                <h3>Gender</h3>
-                <h4>{user?.gender}</h4>
+                <FormControl sx={{ m: 1, minWidth: 120 }}>
+                  <InputLabel id="demo-simple-select-helper-label">Gender</InputLabel>
+                  <Select
+                    labelId="demo-simple-select-helper-label"
+                    id="demo-simple-select-helper"
+                    defaultValue={user?.gender}
+                    label="Gender&ensp;&nbsp;"
+                  >
+                    <MenuItem value="male">Male</MenuItem>
+                    <MenuItem value="female">Female</MenuItem>
+                    <MenuItem value="other">Other</MenuItem>
+                  </Select>
+                </FormControl>
               </div>
               <div>
-                <h3>State</h3>
-                <h4>{user?.state}</h4>
+                <FormControl fullWidth sx={{ m: 1 }}>
+                  <InputLabel htmlFor="outlined-adornment-state">State</InputLabel>
+                  <OutlinedInput
+                    id="outlined-adornment-state"
+                    value={user?.state}
+                    // onChange={handleChange('State')}
+                    label="State&ensp;"
+                  />
+                </FormControl>
               </div>
               <div>
-                <h3>Region</h3>
-                <h4>{user?.region}</h4>
+                <FormControl fullWidth sx={{ m: 1 }}>
+                  <InputLabel htmlFor="outlined-adornment-region">Region</InputLabel>
+                  <OutlinedInput
+                    id="outlined-adornment-region"
+                    value={user?.region}
+                    // onChange={handleChange('Region')}
+                    label="Region&ensp;"
+                  />
+                </FormControl>
+              </div>
+              <div className="d-flex modal-button" style={{ marginTop: '40px', position: 'unset' }}>
+                <button className="btn btn-primary">Save</button>
               </div>
             </div>
           </div>
@@ -186,12 +235,39 @@ const UserInfoPage = () => {
               className="modal-chooseAvatar"
               onClick={() => {
                 setOpenModal(false);
+                setCrop({ unit: 'px', width: 100, aspect: 1 / 1 });
               }}
             ></div>
             <div className="modal-chooseAvatar-box" style={{ overflowY: 'auto' }}>
-              <div className="modal-chooseAvatar-content d-flex" style={{ gap: '100px' }}>
+              <div className="d-flex justify-content-between">
+                <div className="justify-items-start">
+                  <h2>Crop to choose your avatar</h2>
+                </div>
+                <div className="btn d-flex modal-button " style={{ marginBottom: '40px', position: 'unset' }}>
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => {
+                      uploadAvatar();
+                      setOpenModal(false);
+                      setCrop({ unit: 'px', width: 100, aspect: 1 / 1 });
+                    }}
+                  >
+                    Save
+                  </button>
+                  <button
+                    className="btn btn-secondary"
+                    onClick={() => {
+                      setOpenModal(false);
+                      setCrop({ unit: 'px', width: 100, aspect: 1 / 1 });
+                    }}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+              <div className="modal-chooseAvatar-content" style={{ gap: '100px' }}>
                 <ReactCrop
-                  style={{ maxWidth: '600px', marginBottom: '40px', marginTop: '0 !important' }}
+                  style={{ maxWidth: '600px', marginTop: '0 !important', borderRadius: '4px' }}
                   src={image ? image : ''}
                   onImageLoaded={onLoad}
                   crop={crop}
@@ -204,28 +280,10 @@ const UserInfoPage = () => {
                     style={{
                       width: Math.round(completedCrop?.width ?? 0),
                       height: Math.round(completedCrop?.height ?? 0),
+                      borderRadius: '50%',
                     }}
                   />
                 </div>
-              </div>
-              <div className="btn d-flex modal-button" style={{ marginTop: '20px', position: 'unset' }}>
-                <button
-                  className="btn btn-primary"
-                  onClick={() => {
-                    uploadAvatar();
-                    setOpenModal(false);
-                  }}
-                >
-                  Save
-                </button>
-                <button
-                  className="btn btn-secondary"
-                  onClick={() => {
-                    setOpenModal(false);
-                  }}
-                >
-                  Cancel
-                </button>
               </div>
             </div>
           </>

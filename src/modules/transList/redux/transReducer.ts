@@ -10,7 +10,6 @@ export interface TransState {
 export interface filterTrans {
   type: 'status' | 'payroll_id' | 'time_created';
   value: string | number;
-  value2?: string | number;
   payload?: string;
 }
 

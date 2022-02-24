@@ -6,4 +6,5 @@ export interface ITransItem {
   volume_input_in_input_currency: number;
   payment_type: string;
   fees: number;
+  color: string;
 }

@@ -21,13 +21,13 @@ export const filterByDate = (itemData: string, filterData: filterTrans) => {
   }
 };
 
-export const validateEmptyField = (fieldValue: string | number) => {
-  if (!fieldValue) {
-    return 'valueRequire';
-  }
+// export const validateEmptyField = (fieldValue: string | number) => {
+//   if (!fieldValue) {
+//     return 'valueRequire';
+//   }
 
-  return '';
-};
+//   return '';
+// };
 // export const validateItemInput = (value: ITransItem): InputValidation => {
 //   return {
 //     volume_input_in_input_currency: validateEmptyField(value.volume_input_in_input_currency),

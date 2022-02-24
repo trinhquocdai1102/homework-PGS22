@@ -14,7 +14,13 @@ const ApplyClearButton = (props: Props) => {
         </button>
       </li>
       <li>
-        <button type="submit" className="btn clear-btn" onClick={onClear}>
+        <button
+          type="submit"
+          className="btn clear-btn"
+          onClick={() => {
+            onClear();
+          }}
+        >
           Clear
         </button>
       </li>

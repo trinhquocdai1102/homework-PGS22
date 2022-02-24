@@ -13,7 +13,7 @@ const TransItem = (props: Props) => {
   return (
     <tr key={item.payroll_id} className="trans-table-content">
       <td>
-        <div>{item.status}</div>
+        <div style={{ color: item.color }}>{item.status}</div>
       </td>
       <td>
         <div>{moment(item.time_created).format('MM/DD/YYYY')}</div>
