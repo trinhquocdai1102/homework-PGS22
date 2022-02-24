@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { deleteItem } from '../redux/transReducer';
 import { RiDeleteBin5Line } from 'react-icons/ri';
 import { useDispatch } from 'react-redux';
@@ -15,7 +15,7 @@ interface Props {
 const DeleteBtn = (props: Props) => {
   const { item } = props;
   const dispatch = useDispatch<ThunkDispatch<AppState, null, Action<string>>>();
-  const [isOpen, setOpen] = React.useState(false);
+  const [isOpen, setOpen] = useState(false);
 
   const handleDelete = () => {
     dispatch(deleteItem(item.payroll_id));

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import LoginForm from '../components/LoginForm';
 import logo from '../../../logo-420-x-108.png';
 import { ILoginParams } from '../../../models/auth';
@@ -21,7 +21,7 @@ const LoginPage = () => {
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
-  const onLogin = React.useCallback(
+  const onLogin = useCallback(
     async (values: ILoginParams) => {
       setErrorMessage('');
       setLoading(true);

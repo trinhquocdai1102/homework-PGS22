@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useEffect } from 'react';
 import './App.css';
 import { Routes } from './Routes';
 import Cookies from 'js-cookie';
@@ -18,7 +18,7 @@ function App() {
     user: state.profile.user,
   }));
 
-  const getProfile = React.useCallback(async () => {
+  const getProfile = useCallback(async () => {
     const accessToken = Cookies.get(ACCESS_TOKEN_KEY);
 
     if (accessToken && !user) {
@@ -29,7 +29,7 @@ function App() {
     }
   }, [dispatch, user]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     getProfile();
   }, [getProfile]);
 

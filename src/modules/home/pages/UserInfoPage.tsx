@@ -137,7 +137,7 @@ const UserInfoPage = () => {
         <FormattedMessage id="user-info" />
       </title>
       <div
-        style={{ backgroundColor: '#000', marginTop: '-20px', padding: '60px 0 0', minHeight: 'calc(100vh - 50px)' }}
+        style={{ backgroundColor: '#000', marginTop: '-20px', padding: '60px 0 0', minHeight: 'calc(100vh - 30px)' }}
       >
         <form
           noValidate
@@ -241,7 +241,7 @@ const UserInfoPage = () => {
             <div className="modal-chooseAvatar-box" style={{ overflowY: 'auto' }}>
               <div className="d-flex justify-content-between">
                 <div className="justify-items-start">
-                  <h2>Crop to choose your avatar</h2>
+                  <h1>Crop to set your avatar</h1>
                 </div>
                 <div className="btn d-flex modal-button " style={{ marginBottom: '40px', position: 'unset' }}>
                   <button
@@ -280,7 +280,7 @@ const UserInfoPage = () => {
                     style={{
                       width: Math.round(completedCrop?.width ?? 0),
                       height: Math.round(completedCrop?.height ?? 0),
-                      borderRadius: '50%',
+                      // borderRadius: '50%',
                     }}
                   />
                 </div>

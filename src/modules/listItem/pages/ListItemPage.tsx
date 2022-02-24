@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import logo from '../../../logo-420-x-108.png';
 import { useDispatch, useSelector } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
@@ -17,7 +17,7 @@ const ListItemPage = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [templateListItem, setTemplateListItem] = useState(useSelector((state: AppState) => state.list.list));
 
-  const fetchListItem = React.useCallback(async () => {
+  const fetchListItem = useCallback(async () => {
     setErrorMessage('');
     setLoading(true);
 
@@ -31,11 +31,11 @@ const ListItemPage = () => {
     setErrorMessage(getErrorMessageResponse(json));
   }, [dispatch]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     fetchListItem();
   }, [fetchListItem]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!templateListItem) {
       setTemplateListItem(listItem);
     }

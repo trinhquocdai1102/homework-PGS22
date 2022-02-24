@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import RegisterForm from '../components/RegisterForm';
 import logo from '../../../logo-420-x-108.png';
 import { IRegisterParams } from '../../../models/auth';
@@ -22,7 +22,7 @@ const RegisterPage = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [location, setLocation] = useState([]);
 
-  const onRegister = React.useCallback(
+  const onRegister = useCallback(
     async (values: IRegisterParams) => {
       setErrorMessage('');
       setLoading(true);
@@ -54,7 +54,7 @@ const RegisterPage = () => {
     [dispatch],
   );
 
-  React.useEffect(() => {
+  useEffect(() => {
     const fetchLocation = async () => {
       const resp = await dispatch(fetchThunk(API_PATHS.location, 'get'));
       if (resp.code === RESPONSE_STATUS_SUCCESS) {
@@ -68,7 +68,7 @@ const RegisterPage = () => {
     fetchLocation();
   }, [dispatch]);
 
-  const fetchState = React.useCallback(
+  const fetchState = useCallback(
     async (pid: number) => {
       if (pid) {
         const resp = await dispatch(fetchThunk(`${API_PATHS.location}?pid=${pid}`, 'get'));
@@ -83,7 +83,6 @@ const RegisterPage = () => {
   );
 
   return (
-    
     <div
       className="container"
       style={{

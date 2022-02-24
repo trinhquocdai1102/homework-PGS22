@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { Action } from 'typesafe-actions';
@@ -15,9 +15,9 @@ interface Props {
 const DetailBtn = (props: Props) => {
   const { item } = props;
   const dispatch = useDispatch<ThunkDispatch<AppState, null, Action<string>>>();
-  const [isOpen, setOpen] = React.useState(false);
-  const [isType, setType] = React.useState('text');
-  const [changeData, setChangeData] = React.useState(item);
+  const [isOpen, setOpen] = useState(false);
+  const [isType, setType] = useState('text');
+  const [changeData, setChangeData] = useState(item);
 
   const onFocus = () => {
     setType('date');
@@ -33,7 +33,7 @@ const DetailBtn = (props: Props) => {
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (item) {
       setChangeData(item);
     }
@@ -116,13 +116,12 @@ const DetailBtn = (props: Props) => {
               setOpen(false);
             }}
           />
-          <div className="modal-button">
+          <div className="modal-button" style={{ bottom: '32px' }}>
             <button
               className="modal-button_save"
               onClick={() => {
                 handleSave();
                 setOpen(false);
-                alert('Change success !!!');
               }}
             >
               Lưu lại

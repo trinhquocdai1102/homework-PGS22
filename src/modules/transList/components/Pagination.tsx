@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { GrNext } from 'react-icons/gr';
 import { GrPrevious } from 'react-icons/gr';
-import { GiPreviousButton } from 'react-icons/gi';
-import { GiNextButton } from 'react-icons/gi';
+import { AiOutlineDoubleLeft } from 'react-icons/ai';
+import { AiOutlineDoubleRight } from 'react-icons/ai';
 
 interface Props {
   totalPage: number;
@@ -14,10 +14,10 @@ interface Props {
 
 const Pagination = (props: Props) => {
   const lastPage = Math.ceil(props.totalPage);
-  const [displayPage, setDisplayPage] = React.useState({ start: 0, end: 4 });
+  const [displayPage, setDisplayPage] = useState({ start: 0, end: 4 });
   const totalPage = Array.from(Array(lastPage).keys()).slice(displayPage.start, displayPage.end);
   const pages = [5, 10, 15, 20, 25];
-  const changeDisplayPage = React.useCallback(() => {
+  const changeDisplayPage = useCallback(() => {
     if (lastPage < 4) return;
     if (props.currentPage === 1) {
       setDisplayPage({ start: 0, end: 4 });
@@ -43,7 +43,7 @@ const Pagination = (props: Props) => {
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     changeDisplayPage();
   }, [changeDisplayPage]);
   return (
@@ -80,7 +80,7 @@ const Pagination = (props: Props) => {
           }}
         >
           <p className="pagination-item" aria-label="Previous">
-            <GiPreviousButton />
+            <AiOutlineDoubleLeft />
           </p>
         </li>
         <li
@@ -127,7 +127,7 @@ const Pagination = (props: Props) => {
           }}
         >
           <p className="pagination-item" aria-label="Next">
-            <GiNextButton />
+            <AiOutlineDoubleRight />
           </p>
         </li>
       </ul>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { Action } from 'typesafe-actions';
@@ -15,6 +15,7 @@ const TransactionsListPage = () => {
     return state.trans.initialItem;
   });
   const [dataTrans, setDataTrans] = useState<ITransItem[]>();
+
   const [pageInfo, setPageInfo] = useState({
     page: 1,
     currentItem: 0,
@@ -46,12 +47,20 @@ const TransactionsListPage = () => {
     }
   };
 
-  React.useEffect(() => {
+  const sortDatePerPage = () => {
+    // setDataTrans((prev) => {
+    //   return prev?.sort((a, b) => {
+    //     return +new Date(a.time_created) - +new Date(b.time_created);
+    //   });
+    // });
+  };
+
+  useEffect(() => {
     dispatch(setTransData(mockData));
     dispatch(setTransInitialData(mockData));
   }, [dispatch]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (data) {
       setDataTrans(
         data.slice(pageInfo.page * pageInfo.itemPerPage - pageInfo.itemPerPage, pageInfo.page * pageInfo.itemPerPage),
@@ -59,7 +68,7 @@ const TransactionsListPage = () => {
     }
   }, [data, pageInfo]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (data) {
       if (data.length != pageInfo.totalItem) {
         setPageInfo({ page: 1, currentItem: 0, itemPerPage: 5, totalItem: data.length });
@@ -68,7 +77,7 @@ const TransactionsListPage = () => {
   }, [data, pageInfo.totalItem, pageInfo.currentItem, pageInfo.page, pageInfo.itemPerPage]);
   return (
     <div>
-      {dataTrans && <TransactionsListForm data={dataTrans} sortDate={sortDate} />}
+      {dataTrans && <TransactionsListForm data={dataTrans} sortDateAll={sortDate} sortDatePerPage={sortDatePerPage} />}
       {dataTrans && (
         <Pagination
           currentPage={+pageInfo.page}

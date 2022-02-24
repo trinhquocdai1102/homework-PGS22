@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
 import { IRegisterParams, IRegisterValidation } from '../../../models/auth';
@@ -19,9 +19,9 @@ interface Props {
 
 const RegisterForm = (props: Props) => {
   const { onRegister, loading, errorMessage, location, state } = props;
-  const [states, setStates] = React.useState<location[]>();
+  const [states, setStates] = useState<location[]>();
 
-  const [formValues, setFormValues] = React.useState<IRegisterParams>({
+  const [formValues, setFormValues] = useState<IRegisterParams>({
     email: '',
     password: '',
     confirmPassword: '',
@@ -30,9 +30,9 @@ const RegisterForm = (props: Props) => {
     region: 0,
     state: 0,
   });
-  const [validate, setValidate] = React.useState<IRegisterValidation>();
+  const [validate, setValidate] = useState<IRegisterValidation>();
 
-  const onSubmit = React.useCallback(() => {
+  const onSubmit = useCallback(() => {
     const validate = validateRegister(formValues);
     setValidate(validate);
 
@@ -43,7 +43,7 @@ const RegisterForm = (props: Props) => {
     onRegister(formValues);
   }, [formValues, onRegister]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     state(formValues.region).then((resp) => {
       setStates(resp);
     });

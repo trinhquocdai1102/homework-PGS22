@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
 import { ILoginParams, ILoginValidation } from '../../../models/auth';
@@ -13,10 +13,10 @@ interface Props {
 const LoginForm = (props: Props) => {
   const { onLogin, loading, errorMessage } = props;
 
-  const [formValues, setFormValues] = React.useState<ILoginParams>({ email: '', password: '', rememberMe: false });
-  const [validate, setValidate] = React.useState<ILoginValidation>();
+  const [formValues, setFormValues] = useState<ILoginParams>({ email: '', password: '', rememberMe: false });
+  const [validate, setValidate] = useState<ILoginValidation>();
 
-  const onSubmit = React.useCallback(() => {
+  const onSubmit = useCallback(() => {
     const validate = validateLogin(formValues);
 
     setValidate(validate);

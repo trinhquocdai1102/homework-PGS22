@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react';
+import React, { memo, useCallback, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { ThunkDispatch } from 'redux-thunk';
@@ -18,8 +18,8 @@ const Items = (prop: Props) => {
   const [isTag, setTag] = useState(true);
   const { id, title, thumbnailUrl } = prop.item;
 
-  const [text, setText] = React.useState(title);
-  const onBlur = React.useCallback(
+  const [text, setText] = useState(title);
+  const onBlur = useCallback(
     (text: string) => {
       if (id && text) {
         dispatch(setItemValue({ id: +id, value: text }));
@@ -29,7 +29,7 @@ const Items = (prop: Props) => {
     [dispatch, id],
   );
 
-  React.useEffect(() => {
+  useEffect(() => {
     setText(title);
   }, [title]);
   return (

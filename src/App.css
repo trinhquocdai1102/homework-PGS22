@@ -11,13 +11,13 @@ ul {
   margin: 0;
 }
 
-.ReactCrop__crop-selection {
+/* .ReactCrop__crop-selection {
   border-radius: 50%;
 }
 
 .ReactCrop__drag-handle::after {
   border-radius: 50%;
-}
+} */
 
 .borderNone {
   border: none !important;
@@ -34,7 +34,7 @@ ul {
 }
 
 /* Date Input CSS */
-input[type='date']::-webkit-calendar-picker-indicator {
+/* input[type='date']::-webkit-calendar-picker-indicator {
   background: transparent;
   bottom: 0;
   color: transparent;
@@ -45,7 +45,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
   right: 0;
   top: 0;
   width: auto;
-}
+} */
 
 /* Status CSS */
 #status option[value] {
@@ -61,6 +61,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
 .pagination-list.active {
   background: #37b1df;
   color: #fff;
+  border-radius: 8px;
 }
 
 .rotate180 {
@@ -75,6 +76,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
 /* Begin: Navbar CSS */
 .navbar {
   border-radius: 0 0 2px 2px !important;
+  margin-bottom: 0 !important;
 }
 
 .dropdown-toggle::after {
@@ -448,7 +450,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
 .status-detail {
   position: absolute;
   display: none;
-  top: -8px;
+  top: -20px;
   left: 40px;
   width: 300px;
   color: blue;
@@ -471,7 +473,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
 .trans-header-content {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 12px;
 }
 
 .trans-header-content-left .btn {
@@ -482,7 +484,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
 .trans-header-content li,
 .trans-header-content .date-input {
   height: 40px;
-  width: 140px;
+  width: 152px;
   color: rgba(0, 0, 0, 0.5);
   font-weight: bold;
 }
@@ -511,6 +513,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
 .trans-header-btn {
   list-style: none;
   display: flex;
+  justify-content: flex-end;
   gap: 0;
 }
 
@@ -578,7 +581,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
   white-space: nowrap;
   text-overflow: ellipsis;
   padding: 0 4px;
-  max-width: 300px;
+  max-width: 80%;
 }
 
 .trans-table-header {
@@ -606,12 +609,13 @@ input[type='date']::-webkit-calendar-picker-indicator {
 
 .trans-table-header th,
 .trans-table-content td {
-  padding: 0 20px;
+  padding: 0;
 }
 
 .trans-table-header th:first-child,
 .trans-table-content td:first-child {
   border-radius: 16px 0 0 16px;
+  padding: 0 0 0 4px;
 }
 
 .trans-table-header th:last-child,
@@ -640,6 +644,8 @@ input[type='date']::-webkit-calendar-picker-indicator {
   z-index: 9;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   max-width: unset !important;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 
 .behind-modal {
@@ -664,15 +670,15 @@ input[type='date']::-webkit-calendar-picker-indicator {
   height: 54%;
   max-height: 500px;
   margin: auto;
-  padding: 26px 20px 4px;
+  padding: 20px 20px;
   border-radius: 8px;
 }
 
 .modal-chooseAvatar-content {
   position: absolute;
-  bottom: 12px;
-  right: 12px;
-  left: 12px;
+  bottom: 20px;
+  right: 20px;
+  left: 20px;
   display: flex;
 }
 
@@ -851,7 +857,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
 
   .trans-header-content li,
   .trans-header-content .date-input {
-    width: 200px;
+    width: 160px;
   }
 
   .trans-table-header th,
@@ -861,5 +867,9 @@ input[type='date']::-webkit-calendar-picker-indicator {
 
   .trans-table-header th {
     width: 8%;
+  }
+
+  .trans-table-content td > div {
+    max-width: 140px;
   }
 }
