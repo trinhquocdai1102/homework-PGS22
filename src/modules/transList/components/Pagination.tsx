@@ -55,6 +55,7 @@ const Pagination = (props: Props) => {
             name="rowsPerPage"
             id="rowsPerPage"
             form="rowsPerPage"
+            value={props.itemPerPage}
             onChange={(e) => props.onChangeRowPerPage(+e.target.value)}
           >
             {pages.map((item, index) => {
